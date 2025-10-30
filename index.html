@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .btn-reserver.selected {
+  background-color: #22C55E;
+  border: #22C55E;
+  color: white;
+  content: "selectionner";
+}
+
+.suivre >button:disabled {
+  background-color: #66473c;
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+
+section{
+    display: none;
+}
+section.active{
+    display: block;
+}
+
+    </style>
+    
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <div>
+          <h3>T</h3>
+        </div>
+        <h4>Ticketly</h4>
+      </div>
+      <div class="etapes">
+        <div class="step1">
+          <div class="cochee">1</div>
+          <p>Evenement</p>
+        </div>
+        <div class="step2">
+          <div class="cochee">2</div>
+          <p>Billets</p>
+        </div>
+        <div class="step3">
+          <div class="cochee">3</div>
+          <p>Participants</p>
+        </div>
+        <div class="step4">
+          <div class="cochee">4</div>
+          <p>Recapitulatif</p>
+        </div>
+        <div class="step5">
+          <div class="cochee">5</div>
+          <p>Confirmation</p>
+        </div>
+      </div>
+    </header>
+    <section class="section1 active">
+      <h2>Choisissez votre evenement</h2>
+      <div class="recherche">
+        <div>
+          <input type="text" class="inputrecherche" />
+        </div>
+        <div>
+          <select class="ville">
+            <option selected disabled>tout les ville</option>
+            <option >paris</option>
+            <option>lyon</option>
+            <option>marseille</option>
+          </select>
+        </div>
+        <div>
+          <select class="Categorie">
+            <option selected disabled>tout les categories</option>
+            <option >paris</option>
+            <option>lyon</option>
+            <option>marseille</option>
+          </select>
+        </div>
+      </div>
+      <div class="evenement">
+        <div class="event1">
+          <img src="Image.png" alt="image1" />
+          <div class="info">
+            <h4>Festival de Musique Électronique</h4>
+            <h6><i>📅</i>20 octobre 2025</h6>
+            <p class="ville"><i>📍</i> Paris</p>
+            <p><i>👥</i> 500 places restantes</p>
+          </div>
+          <div class="reserve">
+            <p>45$</p>
+            <button class="btn-reserver" onclick="reservations(this)">Réserver</button>
+          </div>
+        </div>
+        <div class="event2">
+          <img src="Image (1).png" alt="image2" />
+          <div class="info">
+            <h4>Conférence Tech Innovation</h4>
+            <h6><i>📅</i>20 juin 2024</h6>
+            <p class="ville"><i>📍</i> lyon</p>
+            <p><i>👥</i> 200 places restantes</p>
+          </div>
+          <div class="reserve">
+            <p>120$</p>
+            <button class="btn-reserver" onclick="reservations(this)">Réserver</button>
+          </div>
+        </div>
+        <div class="event3">
+          <img src="Image (2).png" alt="image3" />
+          <div class="info">
+            <h4>Concert Jazz en Plein Air</h4>
+            <h6><i>📅</i>20 octobre 2025</h6>
+            <p class="ville"><i>📍</i> Marseille</p>
+            <p><i>👥</i> 150 places restantes</p>
+          </div>
+          <div class="reserve">
+            <p>35$</p>
+            <button class="btn-reserver" onclick="reservations(this)">Réserver</button>
+          </div>
+        </div>
+        <div class="event4">
+          <img src="Image (3).png" alt="image4" />
+          <div class="info">
+            <h4>Exposition Art Contemporain</h4>
+            <h6><i>📅</i>20 octobre 2025</h6>
+            <p class="ville"><i>📍</i> Paris</p>
+            <p><i>👥</i> 300 places restantes</p>
+          </div>
+          <div class="reserve">
+            <p>25$</p>
+            <button class="btn-reserver" onclick="reservations(this)">Réserver</button>
+          </div>
+        </div>
+        <div class="event5">
+          <img src="Image (4).png" alt="image5" />
+          <div class="info">
+            <h4>Marathon de la Ville</h4>
+            <h6><i>📅</i>20 octobre 2025</h6>
+            <p class="ville"><i>📍</i> Paris</p>
+            <p><i>👥</i> 100 places restantes</p>
+          </div>
+          <div class="reserve">
+            <p>50$</p>
+            <button class="btn-reserver" onclick="reservations(this)">Réserver</button>
+          </div>
+        </div>
+        <div class="event6">
+          <img src="Image (5).png" alt="image6" />
+          <div class="info">
+            <h4>Festival Gastronomique</h4>
+            <h6><i>📅</i>20 octobre 2025</h6>
+            <p class="ville"><i>📍</i> Paris</p>
+            <p><i>👥</i> 500 places restantes</p>
+          </div>
+          <div class="reserve">
+            <p>60$</p>
+            <button class="btn-reserver" onclick="reservations(this)">Réserver</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="suivre">
+      <button class="precedent" id="precedent" disabled onclick="allerPrecedent() ">&lt; precedent</button>
+      <button class="suivant" id="suivant" disabled onclick="suivre()">suivant &gt;</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
