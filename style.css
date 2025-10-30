@@ -1,0 +1,160 @@
+:root{
+    --blue1 : #398cf1 ;
+    --blue2 :#2274f9;
+    --text :white ;
+    --gray :#E5E7EB ;
+    --Orange   :#FF5A1F;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    margin: 2%;
+}
+header{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 20px;
+    width: 100%;
+}
+header >div{
+    display: flex;
+    gap: 10px;
+}
+.logo{
+    align-items: center;
+}
+.logo >div{
+    border: solid #2563EB 1px;
+    color: var(--text);
+    border-radius:20% ;
+    background: linear-gradient(to left ,var(--blue2),var(--blue1));
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+/* Section1  */
+.etapes{
+    width: 100%;
+    justify-content: space-around;
+}
+.etapes >div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.etapes >div >div{
+    border:solid 1px var(--gray) ;
+    background-color:var(--gray) ;
+    width: 50px;
+    height: 50px;
+    border-radius: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recherche{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+.recherche > div >.ville{
+    width: 100%;
+    height: 25px;
+
+}
+.recherche >div{
+    width: 30%;
+    
+}
+.inputrecherche{
+    height: 20px;
+}
+.recherche > div >.Categorie{
+    width: 100%;
+    height: 25px;
+
+}
+.evenement{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    
+}
+.evenement >div {
+    border-radius:15px ;
+    
+    border: 1px solid black ;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 85%;
+}
+.evenement > div >img{
+    border-radius: 15px 15px 0 0 ;
+}
+.evenement >div >.info{
+    padding: 10px;    
+    border-radius:15px ;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.reserve{
+    display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+
+}
+.reserve > p{
+    color: #043cb5;
+    font-size: 30px;
+    
+}
+.btn-reserver{
+    width: 130px;
+    height: 35px;
+    background-color: var(--Orange);
+    color: white;
+    border: var(--Orange) solid 1px;
+    border-radius: 5px;
+}
+
+
+.suivre{
+    padding: 20px;
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+.suivre >button{
+    width: 100px;
+    height: 30px;
+    
+    border-radius: 5px;
+    
+}
+.precedent{
+    background-color: var(--gray);
+    border: 1px var(--gray);
+}
+.suivant{
+    color: white;
+    background-color: var(--Orange);
+    border: 1px var(--Orange);
+    
+    
+}
+
+
+
