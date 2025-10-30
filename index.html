@@ -166,7 +166,25 @@ section.active{
         </div>
       </div>
     </section>
+    <section class="section2 ">
+      <h1>Combien de billets souhaitez -vous reserver ?</h1>
 
+      <div class="details">
+          <p><strong>Festival Gastronomique</strong></p>
+          <p>Prix unitaire : 60€</p>
+          <p>Places disponibles : 250</p>
+        </div>
+
+        <div class="quantity">
+          <button id="moins">−</button>
+          <input type="number" id="quantity" value="1" min="1" max="250" />
+          <button id="plus">+</button>
+        </div>
+
+        <p>🎫 <span id="ticket-count">1 billet</span> × 60€</p>
+        <div class="total">Total à payer : <span id="total">60€</span></div>
+      </div>
+    </section>
     <div class="suivre">
       <button class="precedent" id="precedent" disabled onclick="allerPrecedent() ">&lt; precedent</button>
       <button class="suivant" id="suivant" disabled onclick="suivre()">suivant &gt;</button>
