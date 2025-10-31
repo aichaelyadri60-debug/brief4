@@ -357,3 +357,161 @@ header >div{
     width: 50px;
   }
 }
+
+
+
+
+
+
+
+
+/* SECTIONS 3 */
+
+.section3 {
+  display: none; 
+  background-color: #f9fafb;
+  padding: 40px 0;
+}
+
+.section3.active {
+  display: block; 
+}
+
+.contenu3 {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contenu3 h1 {
+  font-size: 22px;
+  color: #111827;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+
+.bloc-participant {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media screen and (min-width: 800px) {
+  .bloc-participant {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+
+.formulaire {
+  flex: 2;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 25px;
+}
+
+.entete-form {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #111827;
+  font-size: 14px;
+}
+
+.complete {
+  color: #6b7280;
+}
+
+.progress-bar {
+  height: 4px;
+  background-color: #3b82f6;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+form label {
+  font-weight: 500;
+  color: #374151;
+  font-size: 14px;
+}
+
+form input {
+  height: 35px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0 10px;
+  font-size: 14px;
+}
+
+.btn-enregistrer {
+  margin-top: 15px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  height: 40px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-enregistrer:hover {
+  background-color: #1e40af;
+}
+
+.liste-participants {
+  flex: 1;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 20px;
+  height: fit-content;
+}
+
+.liste-participants h3 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: #111827;
+}
+
+.participant-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f1f5f9;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.participant-item .info p {
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.participant-item .info span {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.btn-supprimer {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #ef4444;
+  transition: transform 0.2s;
+}
+
+.btn-supprimer:hover {
+  transform: scale(1.2);
+}
+
