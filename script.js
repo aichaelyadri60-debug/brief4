@@ -61,3 +61,49 @@ function affichage(){
 }
 
 
+
+const btnprecedent =document.querySelector("#precedent");
+const etapes =document.querySelectorAll(".etapes > div > div");
+let etp = 0;
+console.log(etapes);
+const Sections =document.querySelectorAll("section");
+console.log(Sections);
+
+let index =0;
+function suivre(){
+    Sections[index].classList.remove("active")
+     if (index < Sections.length - 1) {
+    index++;
+    etp++;
+  }
+
+    Sections[index].classList.add("active");
+    if (Sections[index].classList.contains("section2")) {
+    affichage();
+  }
+
+    btnprecedent.disabled = false;
+    mettreAJourEtapes();
+}
+
+
+console.log(btnprecedent);
+function allerPrecedent() {
+  if (index > 0) {
+    Sections[index].classList.remove("active"); 
+    index--;
+    etp--;
+    etapes[etp].textContent=etp+1;
+    Sections[index].classList.add("active");
+    btnprecedent.disabled = false;
+  }
+  if (index === 0) {
+    btnprecedent.disabled = true;
+  }
+  mettreAJourEtapes();
+}
+
+
+
+
+
