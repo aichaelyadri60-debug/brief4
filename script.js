@@ -139,3 +139,47 @@ function mettreAJourEtapes(){
 
 
 
+
+
+
+
+function increment(){
+  let input =document.getElementById("quantity");
+  let prix = document.getElementById("leprix");
+   let price = parseFloat(prix.textContent.replace(/[^\d.]/g, ""));
+
+let valeur =parseInt(input.value);
+let maxx =parseInt(input.max);
+  if(valeur<maxx){
+
+    valeur++;
+    document.getElementById("quantity").value=valeur;
+    document.getElementById("ticket-count").textContent=valeur;
+    document.getElementById("total").textContent=price * valeur +'€';
+    // console.log(valeur);
+  }else{
+    alert("le nombre maximum de biellet disponible est :"+  maxx)
+  }
+  
+
+
+}
+
+function decrement(){
+  let input =document.getElementById("quantity");
+    let prix = document.getElementById("leprix");
+   let price = parseFloat(prix.textContent.replace(/[^\d.]/g, ""));
+
+  // console.log(input);
+  let valeur =parseInt(input.value);
+  let min = parseInt(input.min) || 1;
+  if(valeur>min){
+    valeur --;
+    document.getElementById("quantity").value=valeur;
+    document.getElementById("ticket-count").textContent=valeur;
+    document.getElementById("total").textContent=price * valeur +'€';
+  }else{
+    alert("le nombre doit être au minimum 1")
+  }
+
+}
