@@ -106,4 +106,36 @@ function allerPrecedent() {
 
 
 
+function mettreAJourEtapes(){
+
+  for(const etape of etapes ){
+    etape.style =  `
+    border:solid 1px var(--gray) ;
+    background-color:var(--gray) ;
+    width: 50px;
+    height: 50px;
+    border-radius: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    `
+  }
+    for (let i = 0; i < etp; i++) {
+    etapes[i].style=`
+    background-color:#22C55E ;
+    color :white;
+    
+    `
+    etapes[i].textContent="✓";
+    
+    
+  }
+  etapes[etp].style.backgroundColor= "#3B82F6" ;
+
+}
+
+
+
+
+
 

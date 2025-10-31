@@ -93,7 +93,7 @@ section.active{
             <h4>Festival de Musique Électronique</h4>
             <h6><i>📅</i>20 octobre 2025</h6>
             <p class="ville"><i>📍</i> Paris</p>
-            <p><i>👥</i> 500 places restantes</p>
+            <p class="places"><i>👥</i> <span>5</span> places restantes</p>
           </div>
           <div class="reserve">
             <p>45$</p>
@@ -106,7 +106,7 @@ section.active{
             <h4>Conférence Tech Innovation</h4>
             <h6><i>📅</i>20 juin 2024</h6>
             <p class="ville"><i>📍</i> lyon</p>
-            <p><i>👥</i> 200 places restantes</p>
+            <p class="places"><i>👥</i> <span>200</span> places restantes</p>
           </div>
           <div class="reserve">
             <p>120$</p>
@@ -119,7 +119,7 @@ section.active{
             <h4>Concert Jazz en Plein Air</h4>
             <h6><i>📅</i>20 octobre 2025</h6>
             <p class="ville"><i>📍</i> Marseille</p>
-            <p><i>👥</i> 150 places restantes</p>
+            <p class="places"><i>👥</i><span>150</span>  places restantes</p>
           </div>
           <div class="reserve">
             <p>35$</p>
@@ -132,7 +132,7 @@ section.active{
             <h4>Exposition Art Contemporain</h4>
             <h6><i>📅</i>20 octobre 2025</h6>
             <p class="ville"><i>📍</i> Paris</p>
-            <p><i>👥</i> 300 places restantes</p>
+            <p class="places"><i>👥</i><span>300</span>  places restantes</p>
           </div>
           <div class="reserve">
             <p>25$</p>
@@ -145,7 +145,7 @@ section.active{
             <h4>Marathon de la Ville</h4>
             <h6><i>📅</i>20 octobre 2025</h6>
             <p class="ville"><i>📍</i> Paris</p>
-            <p><i>👥</i> 100 places restantes</p>
+            <p class="places"><i>👥</i> <span>100</span> places restantes</p>
           </div>
           <div class="reserve">
             <p>50$</p>
@@ -158,7 +158,7 @@ section.active{
             <h4>Festival Gastronomique</h4>
             <h6><i>📅</i>20 octobre 2025</h6>
             <p class="ville"><i>📍</i> Paris</p>
-            <p><i>👥</i> 500 places restantes</p>
+            <p class="places"> <i>👥</i><span>500</span> places restantes</p>
           </div>
           <div class="reserve">
             <p>60$</p>
@@ -174,18 +174,18 @@ section.active{
   
         <div class="details">
             <h2><strong>Festival Gastronomique</strong></h2>
-            <p>Prix unitaire : 60€</p>
-            <p>Places disponibles : 250</p>
+            <p class="price">Prix unitaire : <span>60€</span></p>
+            <p class="place">Places disponibles : <span>250</span></p>
           </div>
   
           <div class="quantity">
-            <button id="moins">−</button>
+            <button id="moins" onclick="decrement()" >−</button>
             <input type="number" id="quantity" value="1" min="1" max="250" />
-            <button id="plus">+</button>
+            <button id="plus" onclick="increment()">+</button>
           </div>
   
-          <p>🎫 <span id="ticket-count">1 billet</span> × 60€</p>
-          <div class="total">Total à payer : <span id="total">60€</span></div>
+          <p class="billet">🎫 <span id="ticket-count">1 <p>billet</p> </span> ×  <p id="leprix">60€</p></p>
+          <div class="total" >Total à payer : <span id="total">60€</span></div>
         </div>
       </div>
     </section>
