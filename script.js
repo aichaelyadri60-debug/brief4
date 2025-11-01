@@ -85,8 +85,11 @@ function suivre(){
     if (Sections[index].classList.contains("section2")) {
     affichage();
   }
+    const suivant = document.querySelector(".suivant");
+  suivant.disabled = true; 
 
     btnprecedent.disabled = false;
+    
     mettreAJourEtapes();
 }
 
@@ -161,6 +164,8 @@ let maxx =parseInt(input.max);
     document.getElementById("ticket-count").textContent=valeur;
     document.getElementById("total").textContent=price * valeur +'$';
     document.getElementById("participant-numero").textContent=valeur;
+      const suivant = document.querySelector(".suivant");
+  suivant.disabled = false; 
     // console.log(valeur);
   }else{
     alert("le nombre maximum de biellet disponible est :"+  maxx)
@@ -183,6 +188,7 @@ function decrement(){
     document.getElementById("quantity").value=valeur;
     document.getElementById("ticket-count").textContent=valeur;
     document.getElementById("total").textContent=price * valeur +'$';
+    document.getElementById("participant-numero").textContent=valeur;
   }else{
     alert("le nombre doit être au minimum 1")
   }
@@ -199,6 +205,7 @@ function errors_message(select, message) {
 const form = document.getElementById("formParticipant");
 const btninput = document.querySelector("#submitdata");
 const count = document.getElementById("participant-count");
+// const btnsuiv =document.getElementById("suivant");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -241,6 +248,7 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
+  
   if (count1 < valeur) {
     const affichier = document.querySelector(".liste-participants");
 
@@ -258,18 +266,25 @@ form.addEventListener("submit", (e) => {
 
     count1++;
     count.textContent = count1;
+
     
     form.reset();
+    // btnsuiv.disabled=false;
     if (count1 === valeur) {
       btninput.disabled = true;
       setTimeout(() => {
     alert("Tous les participants ont été enregistrés !");
+        const suivant = document.querySelector(".suivant");
+    suivant.disabled = false; 
+    // btnsuiv.disabled=false;
   }, 100);
       
     }
   } else {
 
     btninput.disabled = true;
+    // btnsuiv.disabled=false;
+
     
   }
   
@@ -288,4 +303,6 @@ function supprimer(element) {
 
 
   document.querySelector("#submitdata").disabled = false;
+      const suivant = document.querySelector(".suivant");
+    suivant.disabled = true; 
 }
