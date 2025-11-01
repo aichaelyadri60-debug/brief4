@@ -192,61 +192,85 @@ function decrement(){
 
 
 
-
-function errors_message(select ,message){
-  document.querySelector(select).innerHTML=message;
+function errors_message(select, message) {
+  document.querySelector(select).innerHTML = message;
 }
-    let count =document.getElementById("participant-count");
-    let count1=parseInt(count.textContent);
-const form = document.getElementById("formParticipant")
-form.addEventListener("submit", (e)=>{
+
+const form = document.getElementById("formParticipant");
+const btninput = document.querySelector("#submitdata");
+const count = document.getElementById("participant-count");
+
+form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const rgxemail =/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$/;
-  const rgxtel =/^(\+?\d{1,3}[-.\s]?)?(\(?\d{3}\)?[-.\s]?)?\d{3}[-.\s]?\d{4}$/;
-  const email =form.querySelector("#email");
-  const nom = form.querySelector('#nom');
-  const prenom = form.querySelector('#prenom');
-  const tele = form.querySelector('#telephone');
-  if(!rgxemail.test(email.value) ){
-            email.style.border = "1px solid red";
-        errors_message(".error-email","email n'est pas valide");
-        return;
+
+  const rgxemail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const rgxtel = /^(\+?\d{1,3}[-.\s]?)?(\(?\d{3}\)?[-.\s]?)?\d{3}[-.\s]?\d{4}$/;
+
+  const email = form.querySelector("#email");
+  const nom = form.querySelector("#nom");
+  const prenom = form.querySelector("#prenom");
+  const tele = form.querySelector("#telephone");
+
+
+  const valeur = parseInt(document.getElementById("quantity").value);
+  let count1 = parseInt(count.textContent);
+
+  document.querySelector(".error-email").textContent = "";
+  document.querySelector(".error-telephone").textContent = "";
+  document.querySelector(".error-prenom").textContent = "";
+  document.querySelector(".error-nom").textContent = "";
+
+  if (prenom.value.trim() === "") {
+    errors_message(".error-prenom", "Veuillez entrer un prénom");
+    prenom.style.border = "1px solid red";
+    return;
   }
-    if(!rgxtel.test(tele.value) ){
-            tele.style.border = "1px solid red";
-        errors_message(".error-tele","tele n'est pas valide");
-        return;
+  if (nom.value.trim() === "") {
+    errors_message(".error-nom", "Veuillez entrer un nom");
+    nom.style.border = "1px solid red";
+    return;
+  }
+  if (!rgxemail.test(email.value)) {
+    email.style.border = "1px solid red";
+    errors_message(".error-email", "Email non valide");
+    return;
+  }
+  if (!rgxtel.test(tele.value)) {
+    tele.style.border = "1px solid red";
+    errors_message(".error-telephone", "Téléphone non valide");
+    return;
   }
 
-const valeur = parseInt(document.getElementById("quantity").value);
+  if (count1 < valeur) {
+    const affichier = document.querySelector(".liste-participants");
 
-    if(count1 < valeur){
-        const afffichier = document.querySelector('.liste-participants');
+    affichier.innerHTML += `
+      <div class="afficher">
+        <ul>
+          <li><strong>Nom :</strong> ${nom.value}</li>
+          <li><strong>Prénom :</strong> ${prenom.value}</li>
+          <li><strong>Email :</strong> ${email.value}</li>
+          <li><strong>Téléphone :</strong> ${tele.value}</li>
+        </ul>
+        <img src="images/Button.svg" onclick="supprimer(this)" alt="Supprimer" />
+      </div>
+    `;
 
-    afffichier.innerHTML +=`
-        <div class="afficher">
-            <ul>
-                <li>Nom : ${nom.value}</li>
-                <li>Email : ${email.value}</li>
-                <li>prenom : ${prenom.value}</li>
-                <li>tele : ${tele.value}</li>
-            </ul>
-            <img src="images/Button.svg" onclick="supprimer()"/>
-        </div>
-    `
-    // document.getElementById("submitdata").style.display="block";
-
-    
-    count1 ++;
-    console.log(count1);
+    count1++;
     count.textContent = count1;
-        
-    }else{
-      document.getElementById("submitdata").style.display="none";
-    }
     
+    form.reset();
+    if (count1 === valeur) {
+      btninput.disabled = true;
+      setTimeout(() => {
+    alert("Tous les participants ont été enregistrés !");
+  }, 100);
+      
+    }
+  } else {
 
-
+    btninput.disabled = true;
+    
+  }
+  
 });
-
-
