@@ -43,13 +43,17 @@ function stockagedecontenu(boutonClique){
     input.value = 1;
     
   }
+    document.getElementById("leprix").textContent="";
+   document.getElementById("total").textContent ="";
+   document.getElementById("ticket-count").textContent="1";
+
 }
 function affichage(){
   const data = JSON.parse(localStorage.getItem("evenementSelectionne"));
    if (data) {
      document.querySelector(".details > h2").textContent = data.titre;
-  document.querySelector(".details > .price >span").textContent = data.prix;
-  document.querySelector(".details > .place >span").textContent= data.placess;
+    document.querySelector(".details > .price >span").textContent = data.prix;
+    document.querySelector(".details > .place >span").textContent= data.placess;
   document.getElementById("quantity").max =data.placess;
   document.getElementById("leprix").textContent =data.prix;
    document.getElementById("total").textContent =data.prix;
@@ -146,7 +150,7 @@ function mettreAJourEtapes(){
 function increment(){
   let input =document.getElementById("quantity");
   let prix = document.getElementById("leprix");
-   let price = parseFloat(prix.textContent.replace(/[^\d.]/g, ""));
+   let price = parseFloat(prix.textContent.replace(/[^\d.]/, ""));
 
 let valeur =parseInt(input.value);
 let maxx =parseInt(input.max);
@@ -155,7 +159,8 @@ let maxx =parseInt(input.max);
     valeur++;
     document.getElementById("quantity").value=valeur;
     document.getElementById("ticket-count").textContent=valeur;
-    document.getElementById("total").textContent=price * valeur +'€';
+    document.getElementById("total").textContent=price * valeur +'$';
+    document.getElementById("participant-numero").textContent=valeur;
     // console.log(valeur);
   }else{
     alert("le nombre maximum de biellet disponible est :"+  maxx)
@@ -164,22 +169,84 @@ let maxx =parseInt(input.max);
 
 
 }
-
 function decrement(){
+  
   let input =document.getElementById("quantity");
     let prix = document.getElementById("leprix");
-   let price = parseFloat(prix.textContent.replace(/[^\d.]/g, ""));
-
+   let price = parseFloat(prix.textContent.replace(/[^\d.]/, ""));
+  
   // console.log(input);
   let valeur =parseInt(input.value);
   let min = parseInt(input.min) || 1;
-  if(valeur>min){
+  if(valeur > min){
     valeur --;
     document.getElementById("quantity").value=valeur;
     document.getElementById("ticket-count").textContent=valeur;
-    document.getElementById("total").textContent=price * valeur +'€';
+    document.getElementById("total").textContent=price * valeur +'$';
   }else{
     alert("le nombre doit être au minimum 1")
   }
 
 }
+
+
+
+
+
+function errors_message(select ,message){
+  document.querySelector(select).innerHTML=message;
+}
+    let count =document.getElementById("participant-count");
+    let count1=parseInt(count.textContent);
+const form = document.getElementById("formParticipant")
+form.addEventListener("submit", (e)=>{
+  e.preventDefault();
+  const rgxemail =/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$/;
+  const rgxtel =/^(\+?\d{1,3}[-.\s]?)?(\(?\d{3}\)?[-.\s]?)?\d{3}[-.\s]?\d{4}$/;
+  const email =form.querySelector("#email");
+  const nom = form.querySelector('#nom');
+  const prenom = form.querySelector('#prenom');
+  const tele = form.querySelector('#telephone');
+  if(!rgxemail.test(email.value) ){
+            email.style.border = "1px solid red";
+        errors_message(".error-email","email n'est pas valide");
+        return;
+  }
+    if(!rgxtel.test(tele.value) ){
+            tele.style.border = "1px solid red";
+        errors_message(".error-tele","tele n'est pas valide");
+        return;
+  }
+
+const valeur = parseInt(document.getElementById("quantity").value);
+
+    if(count1 < valeur){
+        const afffichier = document.querySelector('.liste-participants');
+
+    afffichier.innerHTML +=`
+        <div class="afficher">
+            <ul>
+                <li>Nom : ${nom.value}</li>
+                <li>Email : ${email.value}</li>
+                <li>prenom : ${prenom.value}</li>
+                <li>tele : ${tele.value}</li>
+            </ul>
+            <img src="images/Button.svg" onclick="supprimer()"/>
+        </div>
+    `
+    // document.getElementById("submitdata").style.display="block";
+
+    
+    count1 ++;
+    console.log(count1);
+    count.textContent = count1;
+        
+    }else{
+      document.getElementById("submitdata").style.display="none";
+    }
+    
+
+
+});
+
+
