@@ -274,3 +274,18 @@ form.addEventListener("submit", (e) => {
   }
   
 });
+
+
+
+
+function supprimer(element) {
+  element.parentElement.remove();
+
+
+  const count = document.getElementById("participant-count");
+  let current = parseInt(count.textContent);
+  count.textContent = current - 1;
+
+
+  document.querySelector("#submitdata").disabled = false;
+}
