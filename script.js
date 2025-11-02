@@ -54,9 +54,16 @@ function affichage(){
      document.querySelector(".details > h2").textContent = data.titre;
     document.querySelector(".details > .price >span").textContent = data.prix;
     document.querySelector(".details > .place >span").textContent= data.placess;
-  document.getElementById("quantity").max =data.placess;
-  document.getElementById("leprix").textContent =data.prix;
-   document.getElementById("total").textContent =data.prix;
+    document.getElementById("quantity").max =data.placess;
+    document.getElementById("leprix").textContent =data.prix;
+    document.getElementById("total").textContent =data.prix;
+    document.querySelector(".event-img").src=data.image;
+    document.querySelector(".event-info > h4").textContent=data.titre;
+    document.querySelector(".event-info > .date-event").textContent=data.date;
+    document.querySelector(".event-info > .ville-event ").textContent=data.ville;
+    document.querySelector(".event-info > .prix-event >span").textContent=data.prix;
+
+
 
 
   
@@ -163,9 +170,11 @@ let maxx =parseInt(input.max);
     document.getElementById("quantity").value=valeur;
     document.getElementById("ticket-count").textContent=valeur;
     document.getElementById("total").textContent=price * valeur +'$';
+    document.querySelector(".total-box >h2").textContent=price * valeur +'$';
     document.getElementById("participant-numero").textContent=valeur;
-      const suivant = document.querySelector(".suivant");
-  suivant.disabled = false; 
+    document.querySelector(".tickets-info >span").textContent=valeur;
+    const suivant = document.querySelector(".suivant");
+    suivant.disabled = false; 
     // console.log(valeur);
   }else{
     alert("le nombre maximum de biellet disponible est :"+  maxx)
@@ -188,7 +197,10 @@ function decrement(){
     document.getElementById("quantity").value=valeur;
     document.getElementById("ticket-count").textContent=valeur;
     document.getElementById("total").textContent=price * valeur +'$';
+    document.querySelector(".total-box >h2").textContent=price * valeur +'$';
     document.getElementById("participant-numero").textContent=valeur;
+    document.querySelector(".tickets-info >span").textContent=valeur;
+
   }else{
     alert("le nombre doit être au minimum 1")
   }
@@ -251,8 +263,9 @@ form.addEventListener("submit", (e) => {
   
   if (count1 < valeur) {
     const affichier = document.querySelector(".liste-participants");
+    const recap = document.querySelector(".participant-card");
 
-    affichier.innerHTML += `
+    affichier.innerHTML +=  `
       <div class="afficher">
         <ul>
           <li><strong>Nom :</strong> ${nom.value}</li>
@@ -263,6 +276,16 @@ form.addEventListener("submit", (e) => {
         <img src="images/Button.svg" onclick="supprimer(this)" alt="Supprimer" />
       </div>
     `;
+    recap.innerHTML += `
+      <div class="participant-card">
+        <div class="Participant-nombre">participant<strong>${count1 + 1}</strong></div>
+        <div class="Participant-nom">Nom :    <span>${nom.value} ${prenom.value}</span></div>
+        <div class="Participant-email">Email :    <span>${email.value}</span></div>
+        <div class="Participant-tele">Tele :    <span>${tele.value}</span></div>
+      </div>
+    `;
+
+
 
     count1++;
     count.textContent = count1;
@@ -276,7 +299,6 @@ form.addEventListener("submit", (e) => {
     alert("Tous les participants ont été enregistrés !");
         const suivant = document.querySelector(".suivant");
     suivant.disabled = false; 
-    // btnsuiv.disabled=false;
   }, 100);
       
     }
@@ -306,3 +328,6 @@ function supprimer(element) {
       const suivant = document.querySelector(".suivant");
     suivant.disabled = true; 
 }
+
+
+ 
