@@ -28,6 +28,23 @@ section.active{
 
 }
 
+.confirmer {
+  background-color: #22C55E;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: none;
+}
+
+.confirmer:hover {
+  background-color: #16A34A;
+}
+
+
     </style>
     
     <title>Document</title>
@@ -56,10 +73,6 @@ section.active{
         <div class="step4">
           <div class="cochee">4</div>
           <p>Recapitulatif</p>
-        </div>
-        <div class="step5">
-          <div class="cochee">5</div>
-          <p>Confirmation</p>
         </div>
       </div>
     </header>
@@ -227,11 +240,42 @@ section.active{
     </div>
   </div>
 </section>
+<section class="section4">
+    <h1>Recapitulatif de votre reservation</h1>
+<div class="event-box"> 
+  <h3 class="event-title">Détails de l'événement</h3>
+   <div class="event-content"> 
+    <img src="images/Image (1).png" alt="Festival Gastronomique" class="event-img"> 
+    <div class="event-info"> 
+      <h4>Festival Gastronomique</h4>
+       <p class="date-event">📅 25 juillet 2024</p> 
+       <p class="ville-event">📍 Lyon</p>
+        <p class="prix-event">🎟️ <span>60€</span> par billet</p> 
+      </div> </div> </div> 
+       <div class="tickets-box">
+         <h3 class="tickets-title">Billets réservés</h3>
+          <div class="tickets-info">
+             <p>Nombre de billets</p>
+              <span>1</span>
+             </div> 
+            </div> 
+             <div class="participants-box">
+               <h3 class="participants-title">Participants</h3>
+                <div class="participant-card">
+                  </div> </div> 
+                   <div class="total-box">
+                     <p>Total à payer</p> 
+                     <h2>60€</h2> 
+                     </div> <p class="note"> En cliquant sur "Confirmer", vous acceptez de procéder à la réservation. Vous recevrez un email de confirmation à l’adresse indiquée. </p>
+
+  </section>
 
  
     <div class="suivre">
       <button class="precedent" id="precedent" disabled onclick="allerPrecedent() ">&lt; precedent</button>
       <button class="suivant" id="suivant" disabled onclick="suivre()">suivant &gt;</button>
+      <button class="confirmer" id="confirmer" disabled>Confirmer</button>
+
     </div>
     <script src="script.js"></script>
   </body>

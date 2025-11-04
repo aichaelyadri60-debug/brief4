@@ -88,6 +88,16 @@ function suivre(){
     etp++;
   }
 
+  const btnConfirmer = document.querySelector("#confirmer");
+  const btnSuivant = document.querySelector(".suivant");
+   if (Sections[index].classList.contains("section4")) {
+    btnConfirmer.style.display = "inline-block";
+    btnConfirmer.disabled = false;
+    btnSuivant.style.display = "none"; 
+  } else {
+    btnConfirmer.style.display = "none";
+    btnSuivant.style.display = "inline-block";
+  }
     Sections[index].classList.add("active");
     if (Sections[index].classList.contains("section2")) {
     affichage();
@@ -118,6 +128,16 @@ function allerPrecedent() {
 }
 
 
+
+const btnConfirmer = document.querySelector("#confirmer");
+
+if (btnConfirmer) {
+  btnConfirmer.addEventListener("click", () => {
+    alert(" Réservation confirmée avec succès ");
+   window.location.reload();
+    
+  });
+}
 
 
 function mettreAJourEtapes(){
@@ -328,6 +348,7 @@ function supprimer(element) {
       const suivant = document.querySelector(".suivant");
     suivant.disabled = true; 
 }
+
 
 
  
